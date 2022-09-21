@@ -70,24 +70,24 @@ func (c *SAPAPICaller) ConfByOrderID(orderID string) {
 	confbyOrderIDData, err := c.callProductionOrderConfirmationSrvAPIRequirementConfByOrderID("ProdnOrdConf2", orderID)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(confbyOrderIDData)
 	}
-	c.log.Info(confbyOrderIDData)
 
 	materialMovementsData, err := c.callToMaterialMovements(confbyOrderIDData[0].ToMaterialMovements)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(materialMovementsData)
 	}
-	c.log.Info(materialMovementsData)
 
 	batchCharacteristicData, err := c.callToBatchCharacteristic(materialMovementsData[0].ToBatchCharacteristic)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(batchCharacteristicData)
 	}
-	c.log.Info(batchCharacteristicData)
-
+	return
 }
 
 func (c *SAPAPICaller) callProductionOrderConfirmationSrvAPIRequirementConfByOrderID(api, orderID string) ([]sap_api_output_formatter.Confirmation, error) {
@@ -142,16 +142,17 @@ func (c *SAPAPICaller) MaterialMovements(batch string) {
 	materialMovementsData, err := c.callProductionOrderConfirmationSrvAPIRequirementMaterialMovements("ProdnOrdConfMatlDocItm", batch)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(materialMovementsData)
 	}
-	c.log.Info(materialMovementsData)
 
 	batchCharacteristicData, err := c.callToBatchCharacteristic(materialMovementsData[0].ToBatchCharacteristic)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(batchCharacteristicData)
 	}
-	c.log.Info(batchCharacteristicData)
+	return
 }
 
 func (c *SAPAPICaller) callProductionOrderConfirmationSrvAPIRequirementMaterialMovements(api, batch string) ([]sap_api_output_formatter.MaterialMovements, error) {
@@ -205,23 +206,24 @@ func (c *SAPAPICaller) ConfByOrderIDConfGroup(orderID, confirmationGroup string)
 	confbyOrderIDConfGroupData, err := c.callProductionOrderConfirmationSrvAPIRequirementConfByOrderIDConfGroup("ProdnOrdConf2", orderID, confirmationGroup)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(confbyOrderIDConfGroupData)
 	}
-	c.log.Info(confbyOrderIDConfGroupData)
 
 	materialMovementsData, err := c.callToMaterialMovements(confbyOrderIDConfGroupData[0].ToMaterialMovements)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(materialMovementsData)
 	}
-	c.log.Info(materialMovementsData)
 
 	batchCharacteristicData, err := c.callToBatchCharacteristic(materialMovementsData[0].ToBatchCharacteristic)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(batchCharacteristicData)
 	}
-	c.log.Info(batchCharacteristicData)
+	return
 }
 
 func (c *SAPAPICaller) callProductionOrderConfirmationSrvAPIRequirementConfByOrderIDConfGroup(api, orderID, confirmationGroup string) ([]sap_api_output_formatter.Confirmation, error) {
@@ -246,23 +248,24 @@ func (c *SAPAPICaller) ConfByOrderIDSeqOp(orderID, sequence, orderOperation stri
 	confbyOrderIDSeqOpData, err := c.callProductionOrderConfirmationSrvAPIRequirementConfByOrderIDSeqOp("ProdnOrdConf2", orderID, sequence, orderOperation)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(confbyOrderIDSeqOpData)
 	}
-	c.log.Info(confbyOrderIDSeqOpData)
 
 	materialMovementsData, err := c.callToMaterialMovements(confbyOrderIDSeqOpData[0].ToMaterialMovements)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(materialMovementsData)
 	}
-	c.log.Info(materialMovementsData)
 
 	batchCharacteristicData, err := c.callToBatchCharacteristic(materialMovementsData[0].ToBatchCharacteristic)
 	if err != nil {
 		c.log.Error(err)
-		return
+	} else {
+		c.log.Info(batchCharacteristicData)
 	}
-	c.log.Info(batchCharacteristicData)
+	return
 }
 
 func (c *SAPAPICaller) callProductionOrderConfirmationSrvAPIRequirementConfByOrderIDSeqOp(api, orderID, sequence, orderOperation string) ([]sap_api_output_formatter.Confirmation, error) {
